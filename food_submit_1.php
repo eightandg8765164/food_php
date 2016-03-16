@@ -1,15 +1,12 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
 		<title>訂食吧-註冊會員</title>
 	</head>
 	<body>
 		<center><b>
-		<br>
-		<br>
-		<br>
-			<img src="food_p\1.jpg"
-			width="25%" height="25%"></image>
+		<br><br><br>
+		<img src="food_p\1.jpg" width="25%" height="25%"></image>
 		<br>
 		<div>
 			<font size="5" color=#FF5959>
@@ -26,44 +23,34 @@
 			　 註冊成功　
 			</font>
 		</div>　
-		<br>
-		<br>
+		<br><br>
 		<font size="5" color=#000000>
 		1.註冊帳號
-		<br>
-		<br>
-		<form name="submit" method="post" action="food_submit_2.php">
-		帳號：<input type="text" size=20 name="u_account"> 姓名：<input type="text" size=20 name="u_name">
-		<br>
-		<br>
-		<!--密碼：<input type="text" size=20 name="u_pwd"> 確認密碼：<input type="text" size=20 name="u_pwd">-->
-		密碼<input type=password name="u_pwd" value='' size=10>確認密碼<input type=password name="u_pwdchk" value='' size=10><br>
-		<br>
-		<br>
-		信箱：<input type="text" size=20 name="u_mail">
+		<br><br>
+		<form name="submit" method="post" action="food_submit_2.php" onsubmit="return check()">
+			信箱：<input name="u_mail" type="email" required placeholder="thanks@lot.friends" autocomplete="off" maxlength="50">姓名：<input type="text" size=20 name="u_name">
+			<br><br>
+			<!--密碼：<input type="text" size=20 name="u_pwd" required> 確認密碼：<input type="text" size=20 name="u_pwd" required>-->
+			密碼<input type=password name="u_pwd" size=10 required>確認密碼<input type=password name="u_pwdchk" size=10 required><br>
+			<br><br>
+			手機號碼：<input name="u_phone" type="tel" placeholder="0912345678" pattern="09[1-8][0-9]([\-|\s]?)[0-9]{3}\1[0-9]{3}" maxlength="20" required>
+			<input type="submit" value="送出資料">
 		</form>
-
-		
-		<input type="submit" value="送出資料" onClick="return check()" >
+		<br>
 		
 		</center>
-		<script language="JavaScript" type="text/JavaScript">
-		<!--
-		function check(){
-		p1 = document.submit.u_pwd.value;
-		p2 = document.submit.u_pwdchk.value;
-		if ( p1 == p2 ) { 
-			alert("BINGO!!!");
-			location.href = "C:/Users/superuser/desktop/food_submit_2.php";		
-		}
-		else {
-		alert("兩組密碼不一致");
-		location.reload()
-		}
-		}
-		//-->
-		</SCRIPT>
 	</body>
+	<script language="JavaScript" type="text/JavaScript">
+		function check(){
+			p1 = document.submit.u_pwd.value;
+			p2 = document.submit.u_pwdchk.value;
+			if ( p1 == p2 ) { 
+				//alert("Surprised");
+				return true;
+			}else {
+				alert("兩組密碼不一致");
+				return false;
+			}
+		}
+	</script>
 </html>
-
-
